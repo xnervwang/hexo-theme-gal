@@ -63,7 +63,7 @@
     window.slideConfig = {
       prefix: '<%- theme.slide_background.use_url ? theme.slide_background.prefix : url_for(`imgs/${theme.slide_background.prefix}`) %>',
       ext: '<%- theme.slide_background.ext %>',
-      maxCount: '<%- theme.slide_background.mac_count %>'
+      maxCount: '<%- theme.slide_background.max_count %>'
     }
 </script>
 <%- js(['js/hs.js', 'js/blog.js']) %>
@@ -78,9 +78,10 @@
 <%- js('js/comment/leancloud.js') %>
 <% } %>
 <% if(theme.use_comment === true) { %>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
+      window.commentConfig.id = '<%= page.date %>'
       window.commentConfig.owner = '<%= theme.comment.gitment.owner %>'
       window.commentConfig.repo = '<%= theme.comment.gitment.repo %>'
       window.commentConfig.client_id = '<%= theme.comment.gitment.oauth.client_id %>'
@@ -88,6 +89,7 @@
       window.commentConfig.redirect_uri = '<%= theme.comment.gitment.oauth.redirect_uri %>'
     } else {
       window.commentConfig = {
+      	id: '<%= page.date %>',
         owner: '<%= theme.comment.gitment.owner %>',
         repo: '<%= theme.comment.gitment.repo %>',
         client_id: '<%= theme.comment.gitment.oauth.client_id %>',

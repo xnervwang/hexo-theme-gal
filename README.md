@@ -4,54 +4,32 @@
 
 当我刚刚成为一名gal的萌新时, 忧郁的弟弟已经结婚了(恭喜弟弟君)
 
-弟弟站点的主题感觉挺好看的, 不过是wordpress的主题, 在弟弟的站点也看出很多人喜欢这个站点
-
-甚至有挺多人在问如何做出这种站点
+弟弟站点的主题感觉挺好看的, 不过是wordpress的主题, 在弟弟的站点也看出很多人喜欢这个站点, 甚至有挺多人在问如何做出这种站点
 
 正好我注册了个新的blog域名, 要重新弄个hexo博客(太久没写过博文了), 而又不想用其他主题, 又听贴吧说弟弟站点好像要关了
 
-于是乎就有了这次的hexo移植版
-
-还原度不说100%(也不可能), 也有90%了(毕竟hexo跟wordpress是两个不同的东西)
+于是乎就有了这次的hexo移植版, 还原度不说100%(也不可能), 也有90%了(毕竟hexo跟wordpress是两个不同的东西)
 
 下面的**配置说明**一定要先做好, 因为包含了主题的依赖(反正很重要就是了)
 
-主题示例博客[sora3.coding.me](http://sora3.coding.me)
-
-我的blog[myau.moe](http://myau.moe)
+主题示例博客:[myau.moe](https://myau.moe)
     
-# 更新 2017.12.29
+# 更新: 2018/3/4
 
-进度:
+有个小小的建议, 这个主体可能需要配置比较多的图片, 图片比如好几百kb甚至上m的加载会慢, 这点可以用一些网站进行图片压缩, 然后把图片放在一些对象存储空间上(比如七牛的对象存储空间),
+比如我的博客[myau.moe](https://myau.moe)就是这样的, 所以加载会快些, 关于图片压缩, 可以用下面几个网站:
 
-     [x] 评论系统集成配置
-     [] 404页面
-     [] 文章代码采用SyntaxHighlighter高亮
-     [x] 文章样式
-     [x] 文章顶部标签
-     [x] 文章统计
-     [x] 搜索功能
-     [x] 个人简介
-     [x] 最热文章
-     [x] 最新文章
-     [x] 随机文章
-     [x] 最新评论
-     [x] 热门标签, 友情链接, 个人链接
-     [x] 背景图特效
-     [x] 滚动条样式    
-     [x] 欧尼酱功能
-     [x] 标签集合
-     [x] 目录集合
-     [x] 归档
-     [x] 标签页
-     [x] 目录页
+### [TinyPng](https://tinypng.com/)
+### [CloudConvert](https://cloudconvert.com/)
 
-# 更新 2017.12.30
+另外, 给大家推荐一个网站, 我个人觉得挺好用的, 有很多功能
 
-修复了文章低于10的时候`hexo g`无法完成渲染的问题
+### [创造师](http://chuangzaoshi.com/)     
 
-增加主题配置说明    
-    
+# 更新: 2018/3/30
+
+参照gitment项目的这个[issue](https://github.com/imsun/gitment/issues/118)将gitment的id定为了文章的具体时间(主要是因为github issue label有长度限制, 如果文章标题采用了中文进行了url编码很容易超出限制导致初始化失败, 出现Validation Failed)
+
 # 配置说明
 
     git clone https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal
@@ -112,6 +90,11 @@
         path: true
         date: true
         excerpt: true
+        tags: [{
+          name: tag.name,
+          slug: tag.slug,
+          permalink: tag.permalink
+        }]
         preview: true
     
     接着, 进行下面的步骤:
@@ -126,6 +109,8 @@
 ## 主题的配置说明:
 
 主题配置说明在[wiki](https://github.com/ZEROKISEKI/hexo-theme-gal/wiki/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)
+
+更新：新开了一个issue，主题的一些新的配置说明将会写在这个issue上。 [issue #46](https://github.com/ZEROKISEKI/hexo-theme-gal/issues/46)
 
 ## 使用建议:
 
