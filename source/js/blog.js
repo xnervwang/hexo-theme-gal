@@ -66,7 +66,7 @@
 	var friendLinksTab = $('#friend-links-tab')
 	var linksTab = $('#links-tab')
 
-	friendLinksTab.tab('show')
+	tagsTab.tab('show')
 
 	tagsTab.on('click', function (e) {
 		e.preventDefault()
